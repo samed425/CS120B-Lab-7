@@ -22,15 +22,15 @@ int main(void) {
     DDRA = 0x00; PINA = 0xFF;
     DDRB = 0xFF; PINB = 0x00;
     DDRD = 0xFF; PIND = 0x00;
-    unsigned char led_c;
+    unsigned char led_b;
     unsigned char led_d;
     unsigned short temp;
     ADC_init();
     while (1) {
 	temp = ADC;
-	led_c = (char) temp;
+	led_b = (char) temp;
 	led_d = (char)(temp >> 8);
-	PORTC = led_c;
+	PORTB = led_b;
 	PORTD = led_d;
     }
     return 1;
