@@ -34,7 +34,8 @@ int main(void) {
 	else if (temp > (MAX * 3) / 8) { led = 0x0F; }
 	else if (temp > (MAX * 2) / 8) { led = 0x07; }
 	else if (temp > (MAX * 1) / 8) { led = 0x03; }
-	else { temp = 0x01; }
+	else if (temp > 0) { temp = 0x01; }
+	else { temp = 0x00; }
 	PORTB = led;
 
     }
