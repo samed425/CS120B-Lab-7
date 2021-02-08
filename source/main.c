@@ -27,15 +27,14 @@ int main(void) {
     ADC_init();
     while (1) {
 	temp = ADC;
-	if (temp > 0 ) { led = 0x01; }
-	else if (temp > (MAX) / 8) { led = 0x03; }
-	else if (temp > (MAX * 2) / 8) { led = 0x07; }
-	else if (temp > (MAX * 3) / 8) { led = 0x0F; }
-	else if (temp > (MAX * 4) / 8) { led = 0x1F; }
-	else if (temp > (MAX * 5) / 8) { led = 0x3F; }
+	if (temp > (MAX * 7) / 8) { led = 0xFF; }
 	else if (temp > (MAX * 6) / 8) { led = 0x7F; }
-	else if (temp > (MAX * 7) / 8) { led = 0xFF; }
-	else { led = 0x00; }
+	else if (temp > (MAX * 5) / 8) { led = 0x3F; }
+	else if (temp > (MAX * 4) / 8) { led = 0x1F; }
+	else if (temp > (MAX * 3) / 8) { led = 0x0F; }
+	else if (temp > (MAX * 2) / 8) { led = 0x07; }
+	else if (temp > (MAX * 1) / 8) { led = 0x03; }
+	else { temp = 0x01; }
 	PORTB = led;
 
     }
